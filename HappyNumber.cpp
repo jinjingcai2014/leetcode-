@@ -14,7 +14,7 @@ Example: 19 is a happy number
 12 + 02 + 02 = 1
 Credits:
 Special thanks to @mithmatt and @ts for adding this problem 
-and creating all test cases.**/
+and creating all test cases. https://leetcode.com/problems/happy-number/**/
 class Solution {
 public:
     bool isHappy(int n) {
