@@ -53,35 +53,3 @@ public:
     }
     
 };
-
-
-
-class Solution {
-public:
-    ListNode* reverseKGroup(ListNode* head, int k) {
-            if ( !head || !(head->next) || k<2 ) return head;
-            ListNode dummy(-1);
-            dummy.next = head;
-            ListNode *beginK = &dummy;
-            ListNode *endK = &dummy;
-            while ( true )
-            {
-                // move forward k steps
-                for ( size_t i = 0; i < k && endK; ++i ) {endK = endK->next;}
-                // check if already move to the end of linked list
-                if (!endK) break;
-                // reverse from beginK to endK
-                ListNode *curr = beginK->next;
-                for ( size_t i = 0; i < k-1; ++i )
-                {
-                    ListNode *tmp = curr->next;
-                    curr->next = tmp->next;
-                    tmp->next = beginK->next;
-                    beginK->next = tmp;
-                }
-                beginK = curr;
-                endK = curr;
-            }
-            return dummy.next;
-    }
-};
